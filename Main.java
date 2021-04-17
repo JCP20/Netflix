@@ -1,24 +1,40 @@
-import java.util.*;
 import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
 class Main {
   public static void main(String args[]) {
     Scanner myObj = new Scanner(System.in);
-    boolean flagRun = true;
+    boolean flagRun = true, flagPassword= true, flagEmail = true;
+    String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
+    Pattern p = Pattern.compile(emailRegex);
     String email = "";
     HashMap<String, User> Users = new HashMap<String, User>();
     while(flagRun){
       System.out.println("Bienvenid@ a *nombre aplicación*\nYa tienes una cuenta (c), deseas registrarte(r) o salir (s)");
       String newUser = myObj.nextLine();
       if(!newUser.equals("s")) {
-	      System.out.println("Escribe tu correo"); 
-	      email = myObj.nextLine();
+        while(flagEmail){
+          System.out.println("Escribe tu correo"); 
+          email = myObj.nextLine();
+          Matcher m = p.matcher(email);
+          if(!m.find()){
+            System.out.println("Ingrese un correo valido");
+            flagEmail = true;
+          }else{
+            flagEmail = false;
+          }
+        }
       }
       switch(newUser)
       {
         case "c" :
         if(Users.containsKey(email)){
           User CurrentUser = Users.get(email);
-          boolean flagPassword = true;
           while(flagPassword){
             if (CurrentUser.CorrectUser(myObj)){
               System.out.println("Hola " + CurrentUser.name);

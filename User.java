@@ -1,9 +1,18 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
 
 class User {
   String name, password, email;
+  String emailRegex = "[a-z]+@\\.com$";
+  Pattern p = Pattern.compile(emailRegex);
+  
+            
+            
   HashMap<String, String[]> Users = new HashMap<String, String[]>();// Usar las clases arreglos dinamicos que haga Diego
                                                                   // (String[])
   String[] genres = new String[] {"Action/Aventure", "Anime", "British TVShows", "Family Movies","Classic", "Comedies", "Crime", "Cults", "Documentaries", "Drama", "Horror", "Independent", "International", "Kids", "Romantic","Musical","Reality","Sports","Thriller","Sci-Fi","LGBTQ"}; //Con linked List que haga Diego
@@ -24,7 +33,6 @@ class User {
     int[] indexGenre = new int[genreArray.length];
     for (int i = 0; i<genreArray.length; i++) {
      indexGenre[i] = Integer.parseInt(genreArray[i])-1; 
-     System.out.println(indexGenre[i]);
     }
     
     // Codigo Arreglo Dinamico
