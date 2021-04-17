@@ -9,7 +9,7 @@ import java.util.regex.*;
 class Main {
   public static void main(String args[]) {
     Scanner myObj = new Scanner(System.in);
-    boolean flagRun = true, flagPassword= true, flagEmail = true;
+    boolean flagRun = true;
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
     Pattern p = Pattern.compile(emailRegex);
     String email = "";
@@ -18,8 +18,9 @@ class Main {
       System.out.println("Bienvenid@ a *nombre aplicación*\nYa tienes una cuenta (c), deseas registrarte(r) o salir (s)");
       String newUser = myObj.nextLine();
       if(!newUser.equals("s")) {
+        boolean flagEmail = true;
+        System.out.println("Escribe tu correo"); 
         while(flagEmail){
-          System.out.println("Escribe tu correo"); 
           email = myObj.nextLine();
           Matcher m = p.matcher(email);
           if(!m.find()){
@@ -35,6 +36,7 @@ class Main {
         case "c" :
         if(Users.containsKey(email)){
           User CurrentUser = Users.get(email);
+          boolean flagPassword= true;
           while(flagPassword){
             if (CurrentUser.CorrectUser(myObj)){
               System.out.println("Hola " + CurrentUser.name);
