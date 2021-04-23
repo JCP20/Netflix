@@ -1,3 +1,5 @@
+package BusinessLogic;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -6,8 +8,10 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-class Main {
-  public static void main(String args[]) {
+import Data.User;
+
+class Login {
+  public static void Inicio() {
     Scanner myObj = new Scanner(System.in);
     boolean flagRun = true;
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";

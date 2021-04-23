@@ -2,8 +2,7 @@ package BusinessLogic;
 
 import java.util.ArrayList;
 
-import Data.Movie;
-import Data.Serie;
+import Data.*;
 
 public class Runner {
 
@@ -11,6 +10,7 @@ public class Runner {
 		
 		ArrayList<Movie> movies = Archive.movies();
 		ArrayList<Serie> series = Archive.series();
+    Login ingreso = new Login(); 
 		
 		//System.out.println("Peliculas: ");
 		//for(Movie m:movies) {

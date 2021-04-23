@@ -1,10 +1,12 @@
+package Data;
+
 import java.io.*;
 import java.util.*;
 
-class User {
-  String name, password, email;
+public class User {
+  public String name, password, email;
 
-  HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();// Usar las clases arreglos dinamicos que haga Diego
+  public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();// Usar las clases arreglos dinamicos que haga Diego
                                                                   // (String[])
   String[] genres = new String[] {"Action/Aventure", "Anime", "British TVShows", "Family Movies","Classic", "Comedies", "Crime", "Cults", "Documentaries", "Drama", "Horror", "Independent", "International", "Kids", "Romantic","Musical","Reality","Sports","Thriller","Sci-Fi","LGBTQ"}; //Con linked List que haga Diego
 
