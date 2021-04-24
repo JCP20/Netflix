@@ -8,10 +8,31 @@ public class User {
 
   public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();// Usar las clases arreglos dinamicos que haga Diego
                                                                   // (String[])
-  String[] genres = new String[] {"Action/Aventure", "Anime", "British TVShows", "Family Movies","Classic", "Comedies", "Crime", "Cults", "Documentaries", "Drama", "Horror", "Independent", "International", "Kids", "Romantic","Musical","Reality","Sports","Thriller","Sci-Fi","LGBTQ"}; //Con linked List que haga Diego
+  LinkedListGeneric<String> favGenres = new LinkedListGeneric<String>(); //Con linked List que haga Diego
 
   public User(String email){
     this.email = email;
+    //Mientras está arreglos dinamicos
+    favGenres.insert("Action/Aventure");
+    favGenres.insert("Anime");
+    favGenres.insert("Family Movies");
+    favGenres.insert("Classic");
+    favGenres.insert("Comedies");
+    favGenres.insert("Crime");
+    favGenres.insert("Cults");
+    favGenres.insert("Documentaries"); 
+    favGenres.insert("Drama");
+    favGenres.insert("Horror");
+    favGenres.insert("Independent");
+    favGenres.insert("International");
+    favGenres.insert("Kids");
+    favGenres.insert("Romantic");
+    favGenres.insert("Musical");
+    favGenres.insert("Reality");
+    favGenres.insert("Sports");
+    favGenres.insert("Thriller");
+    favGenres.insert("Sci-Fi");
+    favGenres.insert("LGBTQ");
   }
 
   public void Register(Scanner s) {
@@ -29,13 +50,9 @@ public class User {
       }
     }
     System.out.println(
-        "Escoge el género de peliculas o series que prefieras, pon la que quieras en una sola linea, separados por espacios:\nAction/Aventure (1)\nAnime (2)\nBritish TVShows (3)\nFamily Movies (4)\nClassic (5)\nComedies(6)\nCrime (7)\nCults (8)\nDocumentaries (9)\nDrama (10)\nHorror (11)\nIndependent (12)\nInternational (13)\nKids (14)\nRomantic (15)\nMusical (16)\nReality (17)\nSports (18)\nThriller (19)\nSci-Fi (20)\nLGBTQ+ (21)\n");
+        "Escoge el género de peliculas o series que prefieras, pon la que quieras en una sola linea, separados por espacios:\nAction/Aventure (0)\nAnime (1)\nBritish TVShows (2)\nFamily Movies (3)\nClassic (4)\nComedies(5)\nCrime (6)\nCults (7)\nDocumentaries (8)\nDrama (9)\nHorror (10)\nIndependent (11)\nInternational (12)\nKids (13)\nRomantic (14)\nMusical (15)\nReality (16)\nSports (17)\nThriller (18)\nSci-Fi (19)\nLGBTQ+ (20)\n");
     String genre = s.nextLine();
-    String[] genreArray = genre.split(" ");
-    int[] indexGenre = new int[genreArray.length];
-    for (int i = 0; i<genreArray.length; i++) {
-     indexGenre[i] = Integer.parseInt(genreArray[i])-1; 
-    }
+    String[] index = genre.split(" ");
     
     // Codigo Arreglo Dinamico
     //infoUsers.put(this.email, infoUser);
