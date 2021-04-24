@@ -9,8 +9,7 @@ public class Audiovisual {
 	private String description;
 	private double average_rating;
 	
-	public Audiovisual(String title, String director, String release_year, String genders, String description,
-			double average_rating) {
+	public Audiovisual(String title, String director, String release_year, String genders, String description, double average_rating) {
 		super();
 		this.title = title;
 		this.director = director;
@@ -18,6 +17,16 @@ public class Audiovisual {
 		this.genders = genders;
 		this.description = description;
 		this.average_rating = average_rating;
+	}
+
+  public Audiovisual(String title, String director, String release_year, String genders, String description) {
+		
+		this.title = title;
+		this.director = director;
+		this.release_year = release_year;
+		this.genders = genders;
+		this.description = description;
+		
 	}
 
 	public String getTitle() {

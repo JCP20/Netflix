@@ -5,7 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Data.Movie;
+import Data.LinkedListGeneric;
+import Data.MovieComparable;
 import Data.Serie;
 
 public class Archive {
@@ -15,9 +16,12 @@ public class Archive {
 	
 	
 	
-	public static ArrayList<Movie> movies(){
+	public static LinkedListGeneric<MovieComparable> movies(){
 		
-		ArrayList<Movie> movies = new ArrayList<Movie>();
+		//ArrayList<Movie> movies = new ArrayList<Movie>();
+		
+		LinkedListGeneric<MovieComparable> movies = new LinkedListGeneric<MovieComparable>();
+		
 		try {
 			Scanner sc = new Scanner(databaseFile);
 			
@@ -36,24 +40,26 @@ public class Archive {
 				String runtime = read.next();
 				String genders = read.next();
 				double average = Double.parseDouble(read.next());
+				
 				if(type.contentEquals("movie")){
 					
 					int runtimet = Integer.parseInt(runtime);
 					
-					Movie movie = new Movie(tittle,director,release_year,genders,description,average,runtimet);
-					movies.add(movie);
-					System.out.println(movie);
+					
+					MovieComparable movie = new MovieComparable(tittle,director,release_year,genders,description,average,runtimet);
+				
+					movies.insert(movie);
+					
 					
 					
 				}				
 				
 			}
 			
-			
+			sc.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		
 		
 		return movies;

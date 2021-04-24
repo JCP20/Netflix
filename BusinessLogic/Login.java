@@ -11,7 +11,7 @@ import java.util.regex.*;
 import Data.User;
 
 class Login {
-  public static void Inicio() {
+  public void Inicio() {
     Scanner myObj = new Scanner(System.in);
     boolean flagRun = true;
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
@@ -61,7 +61,7 @@ class Login {
             System.out.println("Este correo ya tiene un usuario");
           }else{
             usuario.Register(myObj);
-            Users.put(usuario.email, usuario);//no guarda el elemento en el map
+            Users.put(usuario.email, usuario);
           }
         break;
 
