@@ -84,12 +84,12 @@ public class User {
 		NodeGeneric<MovieComparable> TEM = primero;
 		LinkedListGeneric Best10 = new LinkedListGeneric();
 		MovieComparable genericmovie = new MovieComparable(" "," "," ",gnder," ",0," ");
-		Best10.insertarfirst(genericmovie);
+		Best10.insertfirst(genericmovie);
 		while (TEM.getNext()!= null){ 
 		  if (TEM.getData().getGenders() == gnder){
 			NodeGeneric<MovieComparable> num1 = Best10.getFirst();
 			if(TEM.getData().getAverage_rating()>=num1.getData().getAverage_rating()){
-			  Best10.insertarfirst(TEM.getData());
+			  Best10.insertfirst(TEM.getData());
 			}else{
 			  Boolean condicional = true;
 			  NodeGeneric<MovieComparable> PRevv = num1;
