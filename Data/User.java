@@ -8,7 +8,7 @@ public class User {
 
   public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();// Usar las clases arreglos dinamicos que haga Diego
                                                                   // (String[])
-  LinkedListGeneric<String> favGenres = new LinkedListGeneric<String>(); //Con linked List que haga Diego
+   String favGenres [] = new String[] {"Action/Aventure","Anime","Family Movies","Classic","Comedies","Crime","Cults","Documentaries","Drama","Horror","Independent","International","Kids","Romantic","Musical","Reality","Sports","Thriller","Sci-Fi","LGBTQ"}; //Con linked List que haga Diego
   
   public String getName() {
     return name;
@@ -45,26 +45,7 @@ public class User {
   public User(String email){
     this.email = email;
     //Mientras está arreglos dinamicos
-    favGenres.insert("Action/Aventure");
-    favGenres.insert("Anime");
-    favGenres.insert("Family Movies");
-    favGenres.insert("Classic");
-    favGenres.insert("Comedies");
-    favGenres.insert("Crime");
-    favGenres.insert("Cults");
-    favGenres.insert("Documentaries"); 
-    favGenres.insert("Drama");
-    favGenres.insert("Horror");
-    favGenres.insert("Independent");
-    favGenres.insert("International");
-    favGenres.insert("Kids");
-    favGenres.insert("Romantic");
-    favGenres.insert("Musical");
-    favGenres.insert("Reality");
-    favGenres.insert("Sports");
-    favGenres.insert("Thriller");
-    favGenres.insert("Sci-Fi");
-    favGenres.insert("LGBTQ");
+
   }
 
   public void Register(Scanner s) {

@@ -65,7 +65,7 @@ class Login {
             System.out.println("Este correo ya tiene un usuario");
           }else{
             usuario.Register(myObj);
-            //llamar a xml para guardarlo en el archivo xml.write()
+            arch.write(usuario);
           }
         break;
 

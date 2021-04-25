@@ -2,6 +2,7 @@ package BusinessLogic;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -68,8 +69,8 @@ public class XML{
     }
 
     public HashMap<String, User> read() {
+        HashMap<String, User> mapUsers = new HashMap<String, User>();
         try {
-          HashMap<String, User> mapUsers = new HashMap<String, User>();
             // Creo una instancia de DocumentBuilderFactory
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             // Creo un documentBuilder
@@ -78,10 +79,10 @@ public class XML{
             Document documento = builder.parse(new File("users.xml"));
             // Cojo todas las etiquetas coche del documento
             NodeList listaUser = documento.getElementsByTagName("user");
- 
+            String em = "";
+            User u = new User(em);
             // Recorro las etiquetas
             for (int i = 0; i < listaUser.getLength(); i++) {
-                User u = new User();
                 // Cojo el nodo actual
                 Node nodo = listaUser.item(i);
                 // Compruebo si el nodo es un elemento
@@ -98,7 +99,8 @@ public class XML{
                         if (hijo.getNodeType() == Node.ELEMENT_NODE) {
                             // Muestro el contenido
                             if("email".equals(hijo.getNodeName())){
-                              String em = hijo.getTextContent();
+                              em = hijo.getTextContent();
+                              u = new User(em);
                             }else if("password".equals(hijo.getNodeName())){
                               u.setPassword(hijo.getTextContent());
                             }else{
@@ -114,35 +116,44 @@ public class XML{
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             System.out.println(ex.getMessage());
         }
+        return mapUsers;
     }
-    /*
-    public void write(){
+
+    public void write(User u){
       try {
         // 1. cargar el XML original
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new File("ruta/al/archivo.xml"));
+        DocumentBuilder db = factory.newDocumentBuilder();
+        Document documento = db.parse(new File("users.xml"));
+        documento.getDocumentElement().normalize();
 
-        // 2. buscar y eliminar el elemento <enfermera id="3"> de entre 
-        //    muchos elementos <enfermera> ubicados en cualquier posicion del documento
-        NodeList items = doc.getElementsByTagName("enfermera");
-        for (int ix = 0; ix < items.getLength(); ix++) {
-            Element element = (Element) items.item(ix);
-            // elejir un elemento especifico por algun atributo
-            if (element.getAttribute("id").equalsIgnoreCase("3")) {
-                // borrar elemento
-                element.getParentNode().removeChild(element);
-            }
-        }
-      
-        // 3. Exportar nuevamente el XML
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        Result output = new StreamResult(new File("ruta/a/resultado.xml"));
-        Source input = new DOMSource(doc);
-        transformer.transform(input, output);
+        //Creamos un nuevo elemento en la casa
+        Element user = documento.createElement("user");
+        //Le añadimos una característica
+        Element ema = documento.createElement("email");
+        Text textEma = documento.createTextNode(u.getEmail());
+        ema.appendChild(textEma);
+        user.appendChild(ema);
 
-      } catch (ParserConfigurationException | SAXException | IOException ex | TransformerException ex) {
-            System.out.println(ex.getMessage());
+        Element pass = documento.createElement("password");
+        Text textpass = documento.createTextNode(u.getPassword());
+        pass.appendChild(textpass);
+        user.appendChild(pass);
+
+        Element name = documento.createElement("name");
+        Text textname = documento.createTextNode(u.getName());
+        name.appendChild(textname);
+        user.appendChild(name);
+        //Añadimos la información a la casa ya existente
+        NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("all_users");
+        nodoRaiz.item(0).appendChild(user);
+        
+      } catch (ParserConfigurationException e) {
+          e.printStackTrace();
+      } catch (SAXException e) {
+          e.printStackTrace();
+      } catch (IOException e) {
+          e.printStackTrace();
       }
-    }*/
+    }
 }
