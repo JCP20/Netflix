@@ -10,7 +10,9 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		this.head = null;
 		
 	}
-	
+	public NodeGeneric<T> getFirst(){
+		return this.head
+	}
 	public boolean insert(T item) {
 		
 		boolean inserted;
@@ -43,7 +45,13 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		return inserted;
 			
 	}
-
+    public void insertarfirst (T item){
+		NodeGeneric<T> newn = new NodeGeneric();
+		newn.setData(item);
+		newn.setNext(head);
+		head = newn;
+		counter++;
+	}
   private void erase (T elem){
     if (head == null){ 
       System.out.println("lista vacía");
