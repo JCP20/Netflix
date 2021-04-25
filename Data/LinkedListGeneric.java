@@ -11,7 +11,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		
 	}
 	public NodeGeneric<T> getFirst(){
-		return this.head
+		return this.head;
 	}
 	public boolean insert(T item) {
 		
