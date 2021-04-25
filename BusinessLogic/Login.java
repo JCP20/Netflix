@@ -11,14 +11,18 @@ import java.util.regex.*;
 import Data.User;
 
 class Login {
+
+  //En vez de crear un user, llamar al xml.write()
+
   public void Inicio() {
     Scanner myObj = new Scanner(System.in);
     boolean flagRun = true;
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
     Pattern p = Pattern.compile(emailRegex);
     String email = "";
-    HashMap<String, User> Users = new HashMap<String, User>();
+    XML arch = new XML();
     while(flagRun){
+      HashMap<String, User> Users = arch.read();
       System.out.println("Bienvenid@ a *nombre aplicación*\nYa tienes una cuenta (c), deseas registrarte(r) o salir (s)");
       String newUser = myObj.nextLine();
       if(!newUser.equals("s")) {
@@ -61,7 +65,7 @@ class Login {
             System.out.println("Este correo ya tiene un usuario");
           }else{
             usuario.Register(myObj);
-            Users.put(usuario.email, usuario);
+            //llamar a xml para guardarlo en el archivo xml.write()
           }
         break;
 

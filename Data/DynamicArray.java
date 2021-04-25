@@ -1,3 +1,5 @@
+package Data;
+
 import java.util.Arrays;
 
 public class DynamicArray {

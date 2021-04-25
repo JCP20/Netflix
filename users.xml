@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+    <all_users>
+        <user>
+            <email>pepito@gmail.com</email>
+            <password>AUDI2021!</password>
+            <name>Pepe</name>
+            <genres>Anime</genres>
+        </user>
+    </all_users>
+</users>
