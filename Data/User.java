@@ -99,4 +99,48 @@ public class User {
          return false;
        }
   }
+  public static void mejores10(String gnder,NodeGeneric<MovieComparable> primero){
+		NodeGeneric<MovieComparable> TEM = primero;
+		LinkedListGeneric Best10 = new LinkedListGeneric();
+		MovieComparable genericmovie = new MovieComparable(" "," "," ",gnder," ",0," ");
+		Best10.insertarfirst(genericmovie);
+		while (TEM.getNext()!= null){ 
+		  if (TEM.getData().getGenders() == gnder){
+			NodeGeneric<MovieComparable> num1 = Best10.getFirst();
+			if(TEM.getData().getAverage_rating()>=num1.getData().getAverage_rating()){
+			  Best10.insertarfirst(TEM.getData());
+			}else{
+			  Boolean condicional = true;
+			  NodeGeneric<MovieComparable> PRevv = num1;
+			  num1 = num1.getNext();
+			  while(condicional && num1 != null ){
+				if(TEM.getData().getAverage_rating()>=num1.getData().getAverage_rating()){
+					NodeGeneric<MovieComparable> nuevo = new NodeGeneric();
+					newn.setData(TEM.getData());
+					newn.setNext(num1);
+				    PRevv.setNext(nuevo);
+				    condicional = false;
+				}else{
+				PRevv = PRevv.getNext();
+				num1 = num1.getNext();
+				}
+			  }
+			}
+		  }
+		  TEM = TEM.getNext();
+		}
+		NodeGeneric<MovieComparable> temp = Best10.getFirst();
+		for(int i=1;i<=10;i++){
+			if (temp.getNext()!= null){
+			    system.out.println(i+"."+temp.getData().getTitle()+".");
+			    system.out.println("Director:"+temp.getData().getDirector()+".");
+			    system.out.println("Año:"+temp.getData().getRelease_year()+".");
+			    system.out.println("Genero:"+temp.getData().getGenders()+".");
+			    system.out.println("descripcion:"+temp.getData().getDescription()+".");
+			    system.out.println("Puntuacion:"+temp.getData().getAverage_rating()+".");
+			    temp = temp.getNext();
+			}
+		}
+  }
+	
 }
