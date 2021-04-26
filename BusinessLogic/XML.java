@@ -24,7 +24,7 @@ import org.xml.sax.SAXException;
 import Data.User;
 
 public class XML{
-    public void create(String email, String password, String nombre, String genres) { //Si no existe archivo usuarios
+    public void create() { //Si no existe archivo usuarios
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -33,26 +33,7 @@ public class XML{
             Document documento = implementation.createDocument(null, "users", null);
             documento.setXmlVersion("1.0");
  
-            Element allUsers = documento.createElement("all_users");
-            Element user = documento.createElement("user");
-
-            Element ema = documento.createElement("email");
-            Text textEma = documento.createTextNode(email);
-            ema.appendChild(textEma);
-            user.appendChild(ema);
- 
-            Element pass = documento.createElement("password");
-            Text textpass = documento.createTextNode(password);
-            pass.appendChild(textpass);
-            user.appendChild(pass);
-
-            Element name = documento.createElement("name");
-            Text textname = documento.createTextNode(nombre);
-            name.appendChild(textname);
-            user.appendChild(name);
-
-            allUsers.appendChild(user);
- 
+            Element allUsers = documento.createElement("all_users"); 
             documento.getDocumentElement().appendChild(allUsers);
  
             Source source = new DOMSource(documento);
@@ -147,6 +128,11 @@ public class XML{
         //Añadimos la información a la casa ya existente
         NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("all_users");
         nodoRaiz.item(0).appendChild(user);
+
+        Source source = new DOMSource(documento);
+        Result result = new StreamResult(new File("users.xml"));
+    	  Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.transform(source, result);
         
       } catch (ParserConfigurationException e) {
           e.printStackTrace();
@@ -154,6 +140,12 @@ public class XML{
           e.printStackTrace();
       } catch (IOException e) {
           e.printStackTrace();
+      } catch (TransformerConfigurationException e) {
+        e.printStackTrace();
+      } catch (TransformerFactoryConfigurationError e) {
+        e.printStackTrace();
+      } catch (TransformerException e) {
+        e.printStackTrace();
       }
     }
 }

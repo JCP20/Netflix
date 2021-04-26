@@ -21,9 +21,10 @@ class Login {
     Pattern p = Pattern.compile(emailRegex);
     String email = "";
     XML arch = new XML();
+    arch.create();
     while(flagRun){
       HashMap<String, User> Users = arch.read();
-      System.out.println("Bienvenid@ a *nombre aplicación*\nYa tienes una cuenta (c), deseas registrarte(r) o salir (s)");
+      System.out.println("Bienvenid@ a TellMeWhatToWatch\nYa tienes una cuenta (c), deseas registrarte(r) o salir (s)");
       String newUser = myObj.nextLine();
       if(!newUser.equals("s")) {
         boolean flagEmail = true;
