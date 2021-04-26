@@ -28,7 +28,7 @@ public class QueuesC {
     }
     public void Push(Serie dato){
 
-        if(Llena()==true){
+        if(complete()==true){
             System.out.print("Overflow \n");
         }
         else{
@@ -46,7 +46,7 @@ public class QueuesC {
         }
     }
     public void Pop(){
-        if(Vacia()==true){
+        if( Empty()==true){
             System.out.print("Empty \n");
         }
         else{
@@ -58,11 +58,10 @@ public class QueuesC {
                 head++;
             }
         }
-        return aux;
     }
     public void printqueue(){
-        for(int iCont=0; iCont<Data.length; iCont++){
-			      System.out.println(i+"."+Data[iCont].getTitle()+".");
+        for(int iCont=1; iCont<=Data.length; iCont++){
+			      System.out.println(iCont+"."+Data[iCont].getTitle()+".");
 			      System.out.println("Director:"+Data[iCont].getDirector()+".");
 			      System.out.println("Año:"+Data[iCont].getRelease_year()+".");
 			      System.out.println("Genero:"+Data[iCont].getGenders()+".");
