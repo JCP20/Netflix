@@ -11,7 +11,7 @@ import java.util.regex.*;
 
 import Data.*;
 
-// Esta clase se encargha en pocas palabras de presentar una primera interfas  que interactua con el usuario
+// Esta clase se encarga en pocas palabras de presentar una primera interfas  que interactua con el usuario
 class Login {
 	
 	static public int length;
