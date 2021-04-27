@@ -1,11 +1,14 @@
 package Data;
 
+// Se creo este tipo de dato para clasificar los datos en series
+
 public class SerieComparable extends Audiovisual implements Comparable<SerieComparable> {
 	
 	private String runtime;
 	private String tittle;
 	private double average_rating;
-
+ 
+	// constructor
 	public SerieComparable(String title, String director, String release_year, String genders, String description,
 			double average_rating, String runtime) {
 		super(title, director, release_year, genders, description, average_rating);
@@ -39,7 +42,8 @@ public class SerieComparable extends Audiovisual implements Comparable<SerieComp
 	public void setTittle(String tittle) {
 		this.tittle = tittle;
 	}
-
+        
+	// comparableto organiza los datos en las estructuras dependiendo de su puntuacion dada por la critica
 	@Override
 	public int compareTo(SerieComparable otherSerie) {
 		
@@ -60,7 +64,7 @@ public class SerieComparable extends Audiovisual implements Comparable<SerieComp
 		
 		
 	}
-	
+// compara las series	
 public boolean equals(Object otherSerie) {
 		
 		SerieComparable otherSerieObject = (SerieComparable) otherSerie;
@@ -72,6 +76,7 @@ public boolean equals(Object otherSerie) {
 	}
 
 @Override
+	// retorna en un string todos los datos asociados 
 public String toString() {
 	return "SerieComparable [runtime=" + runtime + ", tittle=" + tittle + ", average_rating=" + average_rating
 			+ ", getTitle()=" + getTitle() + ", getDirector()=" + getDirector() + ", getRelease_year()="
