@@ -25,6 +25,9 @@ import org.xml.sax.SAXException;
 
 import Data.User;
 
+// La clase XML se encarga de administrar el archivo que contendra todos los datos asociados a cada usuario incluyendo el los 
+// datos de inicio de secion y  las series y peliculas recomendadas para ese usuario en especifico
+
 public class XML{
    
 	public void create() { //Si no existe archivo usuarios
