@@ -1,12 +1,14 @@
 package Data;
 
+// En esta clase se definen los objetos movies de esta manera para asi clasificar los datos mas rapidamente.
+
 public class MovieComparable extends Audiovisual implements Comparable<MovieComparable> {
 	
 	
 	private int runtime;
 	private double average_rating;
 	private String tittle;
-
+        // constructor
 	public MovieComparable(String title, String director, String release_year, String genders, String description,
 			double average_rating,int runtime) {
 		
@@ -19,7 +21,7 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		
 	}
 
-	
+	// getters y setters 
 	public int getRuntime() {
 		return runtime;
 	}
@@ -47,8 +49,9 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 				"\nDescripcion: "+this.getDescription();
 	}
 
+ 
 
-
+	// se comparan las peliculas segun su puntuacion pra asi organizarlas en las diferentes estructuras
 	@Override
 	public int compareTo(MovieComparable otherMovie) {
 		
@@ -66,6 +69,7 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		return result;
 	}
 	
+	// revisa si se esta tratando de las mismas peliculas
 	public boolean equals(Object otherMovie) {
 		
 		MovieComparable otherMovieObject = (MovieComparable) otherMovie;
