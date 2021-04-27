@@ -1,5 +1,7 @@
 package Data;
 
+// clase madre de las series y las peliculas, incluye datos generales que todo producto de netflix ofrece
+
 public class Audiovisual {
 	
 	private String title;
@@ -8,7 +10,7 @@ public class Audiovisual {
 	private String genders;
 	private String description;
 	private double average_rating;
-	
+	// constructor basico
 	public Audiovisual(String title, String director, String release_year, String genders, String description,
 			double average_rating) {
 		
@@ -19,7 +21,7 @@ public class Audiovisual {
 		this.description = description;
 		this.average_rating = average_rating;
 	}
-
+        // hay muchos datos que aun no cuentan con una puntuacion
 	public Audiovisual(String title, String director, String release_year, String genders, String description
 			) {
 		
@@ -31,6 +33,7 @@ public class Audiovisual {
 		
 	}
 	
+	// setters y getters
 
 	public String getTitle() {
 		return title;
@@ -56,6 +59,7 @@ public class Audiovisual {
 		return average_rating;
 	}
 
+	// Retorna un string con todos los datos organizados, esto para luego ser imprmidos
 	@Override
 	public String toString() {
 		return "Audiovisual [title=" + title + ", director=" + director + ", release_year=" + release_year
