@@ -5,6 +5,8 @@ import java.util.*;
 
 import BusinessLogic.Archive;
 
+// La clase user contendra las variables y metodos asociados al objeto user que posteriormente sera guardado en el archivo XML
+
 public class User {
   public String name, password, email,stack,queue;
   public int length;
@@ -14,12 +16,13 @@ public class User {
 
   public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();
   
+   // se guarda en un arreglo todos los generos 
    static String favGenres [] = new String[] {"Action","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Adventure","Horror","History","Musical","Mystery","News","Romance","Reality-TV","Sport","Sci-Fi","Short","Thriller","War","Western"}; //Con linked List que haga Diego
   
    
    
 
-
+// setters y getters
 public void setLength(int length) {
 	this.length = length;
 }
@@ -68,13 +71,13 @@ public void setQueue(String queue) {
 }
 
 public User(String name, String password, String email, String stack, String queue) {
-	this.name = name;
+	this.name = name;// datos de inico de secion
 	this.password = password;
 	this.email = email;
-	this.stack = stack;
+	this.stack = stack;// Datos asociados a las recomendaciones.
 	this.queue = queue;
 }
-
+// el metodo register solicita al usuario los datos de registro y le pregunta sobre sus gustos para asi poder dar las correpondientes recomendaciones 
 public void Register(Scanner s) {
     boolean FlagPasswordCorrect = true;
     System.out.println("Escribe el nombre que deseas utilizar"); // Comparar con Hashmap
@@ -98,7 +101,10 @@ public void Register(Scanner s) {
     
     
     
-   
+   // dependiendo de los generos escojidos por el usuario se crean pilas y colas para organizar los recomendados
+	
+   // Se crean pilas de pilas y colas de colas, teniendo en cuenta que el usuario escoje varios generos, 
+   // cada pila o cola representa una pila o cola de recomendaciones de  uno de los generos.
    
     QueueArrayGeneric<QueueArrayGeneric<SerieComparable>> topGenresSeries = new QueueArrayGeneric<QueueArrayGeneric<SerieComparable>>(index.length);
     StackArrayGeneric<StackArrayGeneric<MovieComparable>> topGenresMovies = new StackArrayGeneric<StackArrayGeneric<MovieComparable>>(index.length);
@@ -120,6 +126,8 @@ public void Register(Scanner s) {
     this.queue="";
     this.stack="";
     
+    // se aprobecha los metodos pop y dequeue para devolver los datos escojidos
+	
     for(int i = 0;i<index.length;i++) {
     	
     	QueueArrayGeneric<SerieComparable> aux = topGenresSeries.dequeue();
@@ -158,7 +166,7 @@ public void Register(Scanner s) {
 public String getStack() {
 	return stack;
 }
-
+// solicita la contraseña para verificar si esta es correcta
 public boolean CorrectUser(Scanner s){
        System.out.println("Escribe tu contraseña: ");
        String posiblePassword = s.nextLine();
