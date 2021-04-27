@@ -1,72 +1,40 @@
 import Data.*;
 
-public class QueuesC {
-
-    private int head=-1;
-    private int tail=-1;
-    private Serie Data[];
-    private int max=10;
-
-    public QueuesC(){
-        Data=new Serie [max];
-    }
-    public boolean complete(){
-        if(tail==max-1 && head==0 || tail+1==head){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    public boolean Empty(){
-        if(tail==-1 && head==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    public void Push(Serie dato){
-
-        if(complete()==true){
-            System.out.print("Overflow \n");
-        }
-        else{
-
-            if(tail==max-1 && tail>0){
-                tail=0;
-                Data[tail]=dato;
-            }
-            else{
-                tail++;
-                Data[tail]=dato;
-                head=0;
-            }
-            
-        }
-    }
-    public void Pop(){
-        if( Empty()==true){
-            System.out.print("Empty \n");
-        }
-        else{
-            if(head==tail){
-                head=-1;
-                tail=-1;
-            }
-            else{
-                head++;
-            }
-        }
-    }
-    public void printqueue(){
-        for(int iCont=1; iCont<=Data.length; iCont++){
-			      System.out.println(iCont+"."+Data[iCont].getTitle()+".");
-			      System.out.println("Director:"+Data[iCont].getDirector()+".");
-			      System.out.println("Año:"+Data[iCont].getRelease_year()+".");
-			      System.out.println("Genero:"+Data[iCont].getGenders()+".");
-			      System.out.println("descripcion:"+Data[iCont].getDescription()+".");
-			      System.out.println("Puntuacion:"+Data[iCont].getAverage_rating()+".");
-        }
-    }
+public class QueueArrayGeneric<T> {
+private final int N = 5;
+private int front, rear, count;
+private T[] qarray;
+public QueueArrayGeneric() {
+front = rear = count = 0;
+qarray = (T[]) new Object[N];
 }
+public T dequeue() {
+T item = null;
+if(empty())
+System.out.println("Queue is empty: item not dequeued");
+else {
+item = qarray[front];
+front = (front + 1) % N;
+count--;
+}
+return item;
+}
+public void enqueue(T item) {
+if(full())
+System.out.println("Queue is full: item not enqueued");
+else {
+qarray[rear] = item;
+rear = (rear + 1) % N;
+count++;
+}
+}
+public boolean empty() {
+return count <= 0;
+}
+public boolean full() {
+return count >= N;
+}
+public int getCount() {
+return count;
+}
+} 
