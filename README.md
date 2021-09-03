@@ -33,20 +33,12 @@ Se utlizó como IDE de preferencia para realizar la aplicación -> [Eclipse](htt
  
 Para construir la aplicación de recomendación de peliculas y series, se utlizó el lenguaje de programación Java, debido a sus buenas propiedades para manejar objetos y clases en programación.La aplicación se construyó de la siguiente manera, hay 3 paquetes:
  - Paquete encargado de la lógica del negocio denominado [Business Logic](./TellMeWhatToWatch%20app/src/BusinessLogic), dentro de este paquete hay 4 clases:
-<p align="center">
-<img src="./Logos/business.png" width="500" height="500" class="center">
- </p>
-
    - Clase [Archive](./TellMeWhatToWatch%20app/src/BusinessLogic/Archive.java) -> Clase encargada de cargar la base de datos y manipularla para que otras clases la puedan utilizar.
    - Clase [Login](./TellMeWhatToWatch%20app/src/BusinessLogic/Login.java) -> Clase encargada del inicio de sesión del usuario.
    - Clase [Runner](./TellMeWhatToWatch%20app/src/BusinessLogic/Runner.java) -> Clase 'Main' del programa, es decir, donde se ejecuta.
    - Clase [XML](./TellMeWhatToWatch%20app/src/BusinessLogic/XML.java) -> Clase encargada del manejo de etiquetas XML para guardar la información de cada usuario.
 
 - Paquete encargado de los datos denominado [Data](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java), dentro de este parquete hay 9 clases:
-<p align="center">
-<img src="./Logos/data.png" width="500" height="500" class="center">
- </p>
-
 
   - Clase [Audiovisual](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/Audiovisual.java) -> Clase madre de las clases MovieComparable y SerieComparable.
   - Clase [MovieComparable](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/MovieComparable.java) -> Clase que modela una pelicula con sus atributos.
@@ -58,14 +50,14 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
   - Clase [StackArrayGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/StackArrayGeneric.java) -> Clase encargada de modelar una pila generica, esta clase es usada para almancenar las peliculas.
   - Clase [User](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/User.java) -> CLase encargada de modelar un Usuario de la aplicación.
 
-- Paquete encargado de la interfaz gráfica denominado [UI]((./TellMeWhatToWatch%20app/src/UI.java).
+- Paquete encargado de la interfaz gráfica denominado [UI]((./TellMeWhatToWatch%20app/src/UI).
 
 
 
 # Miembros del equipo
 
 <p align="center">
-<img src="./Logos/team.png" width="500" height="500" class="center">
+<img src="./Logos/team1.png"  class="center">
  </p>
 
 
