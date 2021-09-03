@@ -12,7 +12,7 @@ Debido a que la plataforma no ofrecería este servicio, surge la necesidad de qu
 # Base de datos
 
 <p align="center">
-<img src="./Logos/netflix.png" class="center">
+<img src="./Logos/netflix.png" width="700" height="500" class="center">
  </p>
  
 Se construyó la base de datos a partir de la reconocida plataforma de entretimiento [Netflix](https://www.netflix.com/co/), Netflix es un servicio de streaming por suscripción que les permite a sus miembros ver series y películas, e [IMDb](https://www.imdb.com/), Internet Movie DataBase, o IMDB según las siglas por las que es internacionalmente conocida, es la más importante base de datos de cine y televisión del mundo..Primeramente se tomaron tanto las peliculas como las series de Netflix y prosteriormente a cada pelicula y serie se les adjunto un puntaje obtenido de IMDb.
@@ -20,7 +20,7 @@ Se construyó la base de datos a partir de la reconocida plataforma de entretimi
 # IDE(Entorno de Desarrollo Integrado)
 
 <p align="center">
-<img src="./Logos/eclipse.png" class="center">
+<img src="./Logos/eclipse.png"  class="center">
  </p>
 
 Se utlizó como IDE de preferencia para realizar la aplicación -> [Eclipse](https://www.eclipse.org/downloads/)
@@ -28,13 +28,13 @@ Se utlizó como IDE de preferencia para realizar la aplicación -> [Eclipse](htt
 # Aplicación
 
 <p align="center">
-<img src="./Logos/java_logo.png" class="center">
+<img src="./Logos/java_logo.png"  class="center">
  </p>
  
 Para construir la aplicación de recomendación de peliculas y series, se utlizó el lenguaje de programación Java, debido a sus buenas propiedades para manejar objetos y clases en programación.La aplicación se construyó de la siguiente manera, hay 3 paquetes:
  - Paquete encargado de la lógica del negocio denominado [Business Logic](./TellMeWhatToWatch%20app/src/BusinessLogic), dentro de este paquete hay 4 clases:
 <p align="center">
-<img src="./Logos/business.png" height = 300 width = 300 class="center">
+<img src="./Logos/business.png" width="500" height="500" class="center">
  </p>
 
    - Clase [Archive](./TellMeWhatToWatch%20app/src/BusinessLogic/Archive.java) -> Clase encargada de cargar la base de datos y manipularla para que otras clases la puedan utilizar.
@@ -44,7 +44,7 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
 
 - Paquete encargado de los datos denominado [Data](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java), dentro de este parquete hay 9 clases:
 <p align="center">
-<img src="./Logos/data.png" height = 300 width = 300 class="center">
+<img src="./Logos/data.png" width="500" height="500" class="center">
  </p>
 
 
@@ -65,7 +65,7 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
 # Miembros del equipo
 
 <p align="center">
-<img src="./Logos/team.png" class="center">
+<img src="./Logos/team.png" width="500" height="500" class="center">
  </p>
 
 
