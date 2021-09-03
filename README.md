@@ -32,7 +32,53 @@ Se utlizó como IDE de preferencia para realizar la aplicación -> [Eclipse](htt
  </p>
  
 Para construir la aplicación de recomendación de peliculas y series, se utlizó el lenguaje de programación Java, debido a sus buenas propiedades para manejar objetos y clases en programación.La aplicación se construyó de la siguiente manera, hay 3 paquetes:
- - Paquete encargado de la lógica del negocio [Business Logic](./TellMeWhatToWatch%20app/src/BusinessLogic)
+ - Paquete encargado de la lógica del negocio denominado [Business Logic](./TellMeWhatToWatch%20app/src/BusinessLogic), dentro de este paquete hay 4 clases:
+<p align="center">
+<img src="./Logos/business.png" height = 300 width = 300 class="center">
+ </p>
+
+   - Clase [Archive](./TellMeWhatToWatch%20app/src/BusinessLogic/Archive.java) -> Clase encargada de cargar la base de datos y manipularla para que otras clases la puedan utilizar.
+   - Clase [Login](./TellMeWhatToWatch%20app/src/BusinessLogic/Login.java) -> Clase encargada del inicio de sesión del usuario.
+   - Clase [Runner](./TellMeWhatToWatch%20app/src/BusinessLogic/Runner.java) -> Clase 'Main' del programa, es decir, donde se ejecuta.
+   - Clase [XML](./TellMeWhatToWatch%20app/src/BusinessLogic/XML.java) -> Clase encargada del manejo de etiquetas XML para guardar la información de cada usuario.
+
+- Paquete encargado de los datos denominado [Data](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java), dentro de este parquete hay 9 clases:
+<p align="center">
+<img src="./Logos/data.png" height = 300 width = 300 class="center">
+ </p>
+
+
+  - Clase [Audiovisual](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/Audiovisual.java) -> Clase madre de las clases MovieComparable y SerieComparable.
+  - Clase [MovieComparable](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/MovieComparable.java) -> Clase que modela una pelicula con sus atributos.
+  - Clase [SerieComparable](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/SerieComparable.java) -> Clase que modela una serie, un show de TV o un documental con sus atributos.
+  - Clase [LinkedListGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/LinkedListGeneric.java) -> Clase que modela una lista enlazada generica.
+  - Clase [NodeGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/NodeGeneric.java) -> Clase que modela un nodo generico, esta clase es utilizada por la clase LinkedListGeneric.
+  - Clase [PriorityQueue](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/PriorityQueue.java) -> Clase que modela una cola prioritaria, mas especificamente un Max Heap, esta clase es la encargada de recomendar peliculas y/o series.
+  - Clase [QueueArrayGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/QueueArrayGeneric.java) -> Clase encargada de modelar una cola generica, esta clase es usada para almacenar las series, documentales y shows de TV.
+  - Clase [StackArrayGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/StackArrayGeneric.java) -> Clase encargada de modelar una pila generica, esta clase es usada para almancenar las peliculas.
+  - Clase [User](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/User.java) -> CLase encargada de modelar un Usuario de la aplicación.
+
+- Paquete encargado de la interfaz gráfica denominado [UI]((./TellMeWhatToWatch%20app/src/UI.java).
+
+
+
+# Miembros del equipo
+
+<p align="center">
+<img src="./Logos/team.png" class="center">
+ </p>
+
+
+
+ - Juliana Cardozo - Estudiante Ingenieria de Sistemas UNAL.
+ - Diego Malagón - Estudiante Ingenieria Mecatronica UNAL.
+ - Laura Castiblanco - Estudiante Ingenieria de Sistemas UNAL.
+ - Andrés Perez -  Estudiante Ingenieria Mecatronica UNAL.
+ - Oscar Rodriguez - Estudiante Ciencias de la computación UNAL.  
+
+  
+  
+  
 
 
 
