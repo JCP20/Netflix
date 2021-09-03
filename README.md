@@ -17,6 +17,8 @@ Debido a que la plataforma no ofrecería este servicio, surge la necesidad de qu
  
 Se construyó la base de datos a partir de la reconocida plataforma de entretimiento [Netflix](https://www.netflix.com/co/), Netflix es un servicio de streaming por suscripción que les permite a sus miembros ver series y películas, e [IMDb](https://www.imdb.com/), Internet Movie DataBase, o IMDB según las siglas por las que es internacionalmente conocida, es la más importante base de datos de cine y televisión del mundo..Primeramente se tomaron tanto las peliculas como las series de Netflix y prosteriormente a cada pelicula y serie se les adjunto un puntaje obtenido de IMDb.
 
+ - [Base de Datos](./TellMeWhatToWatch%20app/src/DataBase.txt) -> Se encuentra en formato CSV.
+
 # IDE(Entorno de Desarrollo Integrado)
 
 <p align="center">
@@ -38,7 +40,7 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
    - Clase [Runner](./TellMeWhatToWatch%20app/src/BusinessLogic/Runner.java) -> Clase 'Main' del programa, es decir, donde se ejecuta.
    - Clase [XML](./TellMeWhatToWatch%20app/src/BusinessLogic/XML.java) -> Clase encargada del manejo de etiquetas XML para guardar la información de cada usuario.
 
-- Paquete encargado de los datos denominado [Data](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java), dentro de este parquete hay 9 clases:
+- Paquete encargado de los datos denominado [Data](./TellMeWhatToWatch%20app/src/Data), dentro de este parquete hay 9 clases:
 
   - Clase [Audiovisual](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/Audiovisual.java) -> Clase madre de las clases MovieComparable y SerieComparable.
   - Clase [MovieComparable](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/MovieComparable.java) -> Clase que modela una pelicula con sus atributos.
@@ -50,7 +52,7 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
   - Clase [StackArrayGeneric](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/StackArrayGeneric.java) -> Clase encargada de modelar una pila generica, esta clase es usada para almancenar las peliculas.
   - Clase [User](./TellMeWhatToWatch%20app/src/BusinessLogic/Data.java/User.java) -> CLase encargada de modelar un Usuario de la aplicación.
 
-- Paquete encargado de la interfaz gráfica denominado [UI]((./TellMeWhatToWatch%20app/src/UI).
+- Paquete encargado de la interfaz gráfica denominado [UI](./TellMeWhatToWatch%20app/src/UI).
 
 
 
