@@ -1,14 +1,12 @@
 package Data;
 
-// En esta clase se definen los objetos movies de esta manera para asi clasificar los datos mas rapidamente.
-
 public class MovieComparable extends Audiovisual implements Comparable<MovieComparable> {
 	
 	
 	private int runtime;
 	private double average_rating;
 	private String tittle;
-        // constructor
+
 	public MovieComparable(String title, String director, String release_year, String genders, String description,
 			double average_rating,int runtime) {
 		
@@ -21,7 +19,7 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		
 	}
 
-	// getters y setters 
+	
 	public int getRuntime() {
 		return runtime;
 	}
@@ -45,22 +43,26 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 
 	@Override
 	public String toString() {
-		return  "Pelicula: "+this.tittle+
-				"\nDescripcion: "+this.getDescription();
+		return  "Pelicula: "+this.tittle+"\n"+
+				"\nDescripcion: "+this.getDescription() +"\n" + "Puntuacion: "+
+				this.getAverage_rating() +"\n"
+				;
 	}
 
- 
 
-	// se comparan las peliculas segun su puntuacion pra asi organizarlas en las diferentes estructuras
+
 	@Override
 	public int compareTo(MovieComparable otherMovie) {
 		
 		int result;
-		if(this.getTitle().charAt(0) < otherMovie.getTitle().charAt(0) && this.getTitle().charAt(this.getTitle().length()-1) < otherMovie.getTitle().charAt(otherMovie.getTitle().length()-1))
+		Double m1 = Double.valueOf(this.getAverage_rating());
+		Double m2 = Double.valueOf(otherMovie.getAverage_rating());
+		
+		if(m1.compareTo(m2)<0)
 			result = -1;
 		
 		else
-			if(this.getTitle().charAt(0) > otherMovie.getTitle().charAt(0) && this.getTitle().charAt(this.getTitle().length()-1) < otherMovie.getTitle().charAt(otherMovie.getTitle().length()-1))
+			if(m1.compareTo(m2)>0)
 				result = 1;
 			else
 				result = 0;
@@ -69,7 +71,6 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		return result;
 	}
 	
-	// revisa si se esta tratando de las mismas peliculas
 	public boolean equals(Object otherMovie) {
 		
 		MovieComparable otherMovieObject = (MovieComparable) otherMovie;

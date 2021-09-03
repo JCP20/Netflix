@@ -1,16 +1,13 @@
 package Data;
 
-// implementacion generica de  las pilas
-
 public class StackArrayGeneric<T> {
 	
-	// se da un tamaño N superior para poder hacer las debidas pruebas en su momento
 	private static final int N = 10*23;
 	private int top;
 	private T[] sarray;
 	
 	
-	//Constructor
+	//Constructors
 	
 	public StackArrayGeneric() {
 		this(N);
@@ -25,19 +22,19 @@ public class StackArrayGeneric<T> {
 			
 	}
 	
-	// metodos basicos de las pílas
+	//Value returning methods	
 	
-	public boolean empty() {//vacio
+	public boolean empty() {
 		
 		return top<=0;
 	}
 	
-	public boolean full() {// completo
+	public boolean full() {
 		
 		return top>=sarray.length;
 	}
 	
-	public T pop() {// eliminar 
+	public T pop() {
 		
 		if(empty()) throw new RuntimeException("Stack is empty");
 		
@@ -45,7 +42,7 @@ public class StackArrayGeneric<T> {
 		return sarray[top];
 	}
 	
-	public void push(T t) { // insertar
+	public void push(T t) {
 		
 		if(full()) throw new RuntimeException("Stack is full");
 		

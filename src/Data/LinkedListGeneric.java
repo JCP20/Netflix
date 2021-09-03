@@ -1,20 +1,16 @@
 package Data;
 
-// implementacion de las listas enlazadas de manera generica 
-
 public class LinkedListGeneric<T extends Comparable<T>> {
 	
-	private NodeGeneric<T> head;// la lista esta simplemete enlazada y sin cola
-	static private  int counter = 0;// tamano
+	private NodeGeneric<T> head;
+	static private  int counter = 0;
 	
-	public LinkedListGeneric() {// constructor
+	public LinkedListGeneric() {
 		
 		head = null;
 		
 	}
-	
-	// metodos basicos para un buen funcionamiento
-	
+		
 	public static int getCounter() {
 		return counter;
 	}
@@ -27,11 +23,11 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 
 
 
-	public NodeGeneric<T> getFirst(){// acceso a la lista
+	public NodeGeneric<T> getFirst(){
 		return this.head;
 		}
 	
-	public void insertfirst (T item){// insertar al inicio pushfront
+	public void insertfirst (T item){
 		NodeGeneric<T> newn = new NodeGeneric();
 		newn.setData(item);
 		newn.setNext(head);
@@ -39,7 +35,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		counter++;
 	}
 	
-	public boolean search(T item) {// recorre la lista en busqueda de un dato
+	public boolean search(T item) {
 		
 		boolean inserted = false;
 		NodeGeneric<T> ptr;
@@ -58,7 +54,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 	
 
 	
-	public boolean insert(T item) { // insertar de manera ordenada
+	public boolean insert(T item) {
 		
 		boolean inserted;
 		NodeGeneric<T> ptr,prev;
@@ -96,7 +92,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 			
 	}
 	
-	public void erase (T elem){// borrar o eliminar
+	public void erase (T elem){
 		
 		
 	    if (head == null){ 
@@ -121,7 +117,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 	    }
 	  } 
 	
-	private void printR(NodeGeneric<T> p) {// muestra la lista
+	private void printR(NodeGeneric<T> p) {
 		
 		if(p != null) {
 			

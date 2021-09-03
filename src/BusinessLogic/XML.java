@@ -25,9 +25,6 @@ import org.xml.sax.SAXException;
 
 import Data.User;
 
-// La clase XML se encarga de administrar el archivo que contendra todos los datos asociados a cada usuario incluyendo el los 
-// datos de inicio de secion y  las series y peliculas recomendadas para ese usuario en especifico
-
 public class XML{
    
 	public void create() { //Si no existe archivo usuarios
@@ -74,9 +71,9 @@ public class XML{
             
             String email ="";
             String name ="";
-            String stack="";
-            String queue="";
+            String seriespq="";
             String password="";
+            String moviespq ="";
             
            
             // Recorro las etiquetas
@@ -109,18 +106,18 @@ public class XML{
                             }
                             else if("topMovies".equals(hijo.getNodeName())){
                             
-                            stack=(hijo.getTextContent());
+                            moviespq=(hijo.getTextContent());
                             
                             	
                             }
                             else {
                             	
-                            	queue = hijo.getTextContent();
+                            	seriespq = hijo.getTextContent();
                             	
                             }
                         }
                     }
-                   User u = new User( name, password, email, stack,queue);
+                   User u = new User( name, password, email, moviespq,seriespq);
                    
                   mapUsers.put(email,u);
                 }
@@ -161,12 +158,12 @@ public class XML{
         user.appendChild(name);
         
         Element topMovies = documento.createElement("topMovies");
-        Text textTopMovies = documento.createTextNode(u.getStack());
+        Text textTopMovies = documento.createTextNode(u.getMoviespq());
         topMovies.appendChild(textTopMovies);
         user.appendChild(topMovies);
         
         Element topSeries = documento.createElement("topSeries");
-        Text textTopSeries = documento.createTextNode(u.getQueue());
+        Text textTopSeries = documento.createTextNode(u.getSeriespq());
         topSeries.appendChild(textTopSeries);
         user.appendChild(topSeries);
         

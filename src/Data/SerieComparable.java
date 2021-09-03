@@ -43,46 +43,31 @@ public class SerieComparable extends Audiovisual implements Comparable<SerieComp
 	@Override
 	public int compareTo(SerieComparable otherSerie) {
 		
+		Double s1 = Double.valueOf(this.getAverage_rating());
+		Double s2 = Double.valueOf(otherSerie.getAverage_rating());
 		
 		int result;
-		if(this.getTitle().charAt(0) < otherSerie.getTitle().charAt(0) && this.getTitle().charAt(this.getTitle().length()-1) < otherSerie.getTitle().charAt(otherSerie.getTitle().length()-1))
+		if(s1.compareTo(s2)<0)
 			result = -1;
 		
 		else
-			if(this.getTitle().charAt(0) > otherSerie.getTitle().charAt(0) && this.getTitle().charAt(this.getTitle().length()-1) < otherSerie.getTitle().charAt(otherSerie.getTitle().length()-1))
+			if(s1.compareTo(s2)>0)
 				result = 1;
 			else
 				result = 0;
-		
-		
-		return result;
-		
-		
-		
+		return result;	
 	}
 	
-public boolean equals(Object otherSerie) {
-		
+	
+	public boolean equals(Object otherSerie) {
 		SerieComparable otherSerieObject = (SerieComparable) otherSerie;
-		
-		 
-		  
 		return (this.tittle.contentEquals(otherSerieObject.getTitle()));
-		
 	}
 
-@Override
-public String toString() {
-	return "Serie: " + this.tittle + "\n"
-			+ "Descripcion: "+ this.getDescription()+"\n\n";
-}
-
-
-
-	
-	
-	
-	
-	
-
+	@Override
+	public String toString() {
+		return "Serie: " + this.tittle + "\n"
+				+ "Descripcion: "+ this.getDescription()+"\n\n" + "Rating: "+
+				this.getAverage_rating() +"\n";
+	}
 }
