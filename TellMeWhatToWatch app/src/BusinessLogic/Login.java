@@ -10,7 +10,7 @@ public class Login {
 	
 	static public int length;	
 
-  public static void Inicio(LinkedListGeneric<MovieComparable> list) {
+  public static void Inicio() {
     Scanner myObj = new Scanner(System.in);
     boolean flagRun = true;
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
