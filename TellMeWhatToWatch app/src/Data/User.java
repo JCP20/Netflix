@@ -1,6 +1,5 @@
 package Data;
 
-import java.io.*;
 import java.util.*;
 
 import BusinessLogic.Archive;
@@ -9,8 +8,8 @@ public class User {
   public String name, password, email;
   public String moviespq, seriespq;
   public int length;
-  public StackArrayGeneric<MovieComparable> topMovies;
-  public QueueArrayGeneric<SerieComparable> topSeries;
+  private PriorityQueue <MovieComparable> topMovies;
+  private PriorityQueue <SerieComparable> topSeries;
   
 
   public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();
@@ -49,12 +48,8 @@ public String getName() {
     this.email = email;
   }
 
-
-
   public User(String email){
     this.email = email;
-    
-
   }
   
   
@@ -72,10 +67,10 @@ public void Register(Scanner s) {
     System.out.println("Escribe el nombre que deseas utilizar"); // Comparar con Hashmap
     this.name = s.nextLine();
     while(FlagPasswordCorrect){
-      System.out.println("Escribe la contraseña que deseas utilizar, que sea mayor 7 caracteres");
+      System.out.println("Escribe la contraseÃ±a que deseas utilizar, que sea mayor 7 caracteres");
       this.password = s.nextLine();
       if(this.password.length()<8){
-        System.out.println("Escribe contraseña valida");
+        System.out.println("Escribe contraseÃ±a valida");
         FlagPasswordCorrect = true;
       }else{
         FlagPasswordCorrect = false;
@@ -87,15 +82,6 @@ public void Register(Scanner s) {
     
     String[] index = genre.split(" ");
     
-
-    
-   
-   
-   
-   
-    
-    
-    
    
     this.moviespq ="";
     this.seriespq ="";
@@ -103,11 +89,9 @@ public void Register(Scanner s) {
     for(int i = 0;i < index.length; i++) {
     	
  
-    	PriorityQueue <MovieComparable> topMovies = Archive.topMovies(favGenres[Integer.parseInt(index[i])]);
-    	PriorityQueue <SerieComparable> topSeries = Archive.topSeries(favGenres[Integer.parseInt(index[i])]);
-    	
-  
-    	
+    	topMovies = Archive.topMovies(favGenres[Integer.parseInt(index[i])]);
+    	topSeries = Archive.topSeries(favGenres[Integer.parseInt(index[i])]);
+    
     	for(int j=0;j<10;j++) {
     		
     		this.moviespq += topMovies.prioritySearch().toString();
@@ -117,25 +101,8 @@ public void Register(Scanner s) {
     		topSeries.remove();
     		
     		}
-    	
-    	
-    	
-    	
-    	
-    
-	
-    	
-    }
-    
-    
 
-
-   
-   
-  
-    
-  
-    
+    } 
     
 }
 
@@ -161,7 +128,7 @@ public void setMoviespq(String moviespq) {
 
 
 public boolean CorrectUser(Scanner s){
-       System.out.println("Escribe tu contraseña: ");
+       System.out.println("Escribe tu contraseï¿½a: ");
        String posiblePassword = s.nextLine();
        
        return this.password.equals(posiblePassword);

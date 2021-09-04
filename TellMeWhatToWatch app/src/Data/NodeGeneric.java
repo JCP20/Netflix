@@ -30,7 +30,7 @@ public class NodeGeneric<T> {
 		this.data = data;
 	}
 	
-	public NodeGeneric getNext() {
+	public NodeGeneric<T> getNext() {
 		
 		return next;
 	}

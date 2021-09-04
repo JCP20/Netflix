@@ -2,7 +2,6 @@ package BusinessLogic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import Data.*;
@@ -177,9 +176,9 @@ public class Archive {
 		return movies;
 	}
 	
-	public static LinkedListGeneric series(){
+	public static LinkedListGeneric<SerieComparable> series(){
 		
-		LinkedListGeneric series = new LinkedListGeneric();
+		LinkedListGeneric<SerieComparable> series = new LinkedListGeneric<SerieComparable>();
 		
 		try {
 			Scanner sc = new Scanner(dataBaseFile,"UTF-8");
@@ -208,9 +207,11 @@ public class Archive {
 					
 					
 					
-				}				
+				}
+				read.close();				
 				
 			}
+			sc.close();
 			
 			
 		} catch (FileNotFoundException e) {

@@ -30,7 +30,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		}
 	
 	public void insertfirst (T item){
-		NodeGeneric<T> newn = new NodeGeneric();
+		NodeGeneric<T> newn = new NodeGeneric<T>();
 		newn.setData(item);
 		newn.setNext(head);
 		head = newn;
@@ -75,7 +75,7 @@ public class LinkedListGeneric<T extends Comparable<T>> {
 		if(ptr == null || !(ptr.getData().equals(item))) {
 			
 			inserted = true;
-			NodeGeneric<T> newp = new NodeGeneric();
+			NodeGeneric<T> newp = new NodeGeneric<T>();
 			newp.setData(item);
 			newp.setNext(ptr);
 			
