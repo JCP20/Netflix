@@ -11,10 +11,7 @@ public class User {
   private PriorityQueue <MovieComparable> topMovies;
   private PriorityQueue <SerieComparable> topSeries;
   
-
-  public HashMap<String, String[]> infoUsers = new HashMap<String, String[]>();
-  
-   static String favGenres [] = new String[] {"Action","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Adventure","Horror","History","Musical","Mystery","News","Romance","Reality-TV","Sport","Sci-Fi","Short","Thriller","War","Western"}; //Con linked List que haga Diego
+  static String favGenres [] = new String[] {"Action","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Adventure","Horror","History","Musical","Mystery","News","Romance","Reality-TV","Sport","Sci-Fi","Short","Thriller","War","Western"}; //Con linked List que haga Diego
   
    
    
@@ -64,7 +61,7 @@ public User(String name, String password, String email,String moviespq,String se
 
 public void Register(Scanner s) {
     boolean FlagPasswordCorrect = true;
-    System.out.println("Escribe el nombre que deseas utilizar"); // Comparar con Hashmap
+    System.out.println("Escribe el nombre que deseas utilizar"); 
     this.name = s.nextLine();
     while(FlagPasswordCorrect){
       System.out.println("Escribe la contraseña que deseas utilizar, que sea mayor 7 caracteres");
