@@ -65,12 +65,12 @@ public void setQueue(String queue) {
 	this.queue = queue;
 }
 
-public User(String name, String password, String email, String stack, String queue) {
+public User(String name, String password, String email, String moviespq, String seriespq) {
 	this.name = name;
 	this.password = password;
 	this.email = email;
-	this.stack = stack;
-	this.queue = queue;
+	this.moviespq = moviespq;
+	this.seriespq = seriespq;
 }
 
 public void Register(String nombre, String email, String password, ArrayList generos) {

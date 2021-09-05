@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/peliculas.css" th:href="@{/css/peliculas.css}">
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-	<title>Inicio</title>
+	<title>MoviesAndSeries</title>
 </head>
 <body>
 	<header>
@@ -14,7 +14,6 @@
 			<nav>
 				<a class="activo" href="#" >Inicio</a>
 				<a class="nav-link"th:href="@{/registro}" >Preferencias</a>
-				<a href="#">Favoritos</a>
 				<a href="#">Salir</a>
 			</nav>
 		</div>
@@ -23,7 +22,7 @@
 	<main>
 		<div class="pelicula-principal">
 			<div class="contenedor">
-				<h3 class="titulo"th:text="'hola '+ ${name} +'!'">
+				<h3 class="titulo"th:text="'Hello '+ ${name} +'!'">
 				</h3>
 
 				<p class="descripcion">
@@ -42,60 +41,13 @@
 			<div class="contenedor-principal">
 				<button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
 				<div class="contenedor-carousel" >
-					<div class="carousel">
-                        <div class="pelicula">
+					<div class="carousel" >
+                        <div class="pelicula" th:each="peli:${topmovi}">
+                            <div class="img" th:switch="${topmovi}">
 							<a href="#"><img src="images/1.png" alt=""></a>
-							<p class="descripcion" >fdxckhxdhcfjkhcfjvkhcfjvyk </p>
+							<p class="descripcion" th:text="${peli.getDescription()}" ></p>
+                            <p class="descripcion" th:text="${peli.getDescription()}" ></p>
 						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/4.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/5.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/6.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/1.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/2.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/3.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/1.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/2.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/3.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/4.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/5.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/6.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/1.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/2.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/3.png" alt=""></a>
-						</div>
-						<div class="pelicula">
-							<a href="#"><img src="images/4.png" alt=""></a>
-						</div>
-						
 					</div>
 				</div>
    

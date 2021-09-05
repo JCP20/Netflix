@@ -1,6 +1,8 @@
 package com.example.servingwebcontent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+
 
 import BusinessLogic.*;
 import Data.*;
@@ -57,11 +61,18 @@ public class GreetingController {
 		 Login l = new Login();
 		 String x = Login.InicioSesion(usuario,password);
 		 if (x == "UsuarioAutenticado") {
+			 XML arch = new XML();
+			 arch.create();
+			 HashMap<String, User> Users = arch.read();
+			 User CurrentUser = Users.get(usuario);
 			 modelo.setViewName("peliculas");
-			 model.addAttribute("name", "juli");
-			 String listapeliculas = l.TopMovies(usuario);
+			 model.addAttribute("name", CurrentUser.name);
+			 List<MovieComparable> listapeliculas = l.TopMovies(CurrentUser.moviespq);
 			 model.addAttribute("topmovi",listapeliculas);
-			 //this.emaindef= usuario;
+			 List<SerieComparable> listaseries = l.TopSeries(CurrentUser.seriespq);
+			 model.addAttribute("topseries",listaseries);
+
+
 		 }
 		 else {
 			 model.addAttribute("mensaje",x);
@@ -76,7 +87,7 @@ public class GreetingController {
 		 String correo = req.getParameter("email");
 		 String password = req.getParameter("password");
 		 ArrayList<String> generos = new ArrayList<String>();		 
-		 String favGenres [] = new String[] {"Action","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Adventure","Horror","History","Musical","Mystery","Romance","Reality-TV","Sport","Sci-Fi","Short","Thriller","War"};
+		 String favGenres [] = new String[] {"Action","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Adventure","Horror","History","Musical","Mystery","Romance","Sport","Sci-Fi","Thriller","War"};
 		 for(int i = 0;i < favGenres.length; i++) {
 				String generoactual = req.getParameter(favGenres[i]);
 	            if(generoactual != null) {
@@ -86,12 +97,20 @@ public class GreetingController {
 		     }
 		 Login l = new Login();
 		 String xr = Login.Registrar(username,correo,password,generos);
+		 int r =(int) Math.floor(Math.random() * 9);
 		 if (xr == "UsuarioAutenticado") {
+			 XML arch = new XML();
+			 arch.create();
+			 HashMap<String, User> Users = arch.read();
+			 User CurrentUser = Users.get(correo);
 			 modelo.setViewName("peliculas");
-			 model.addAttribute("name", username);
-			 String listapeliculas = l.TopMovies(correo);
+			 model.addAttribute("name", CurrentUser.name);
+			 model.addAttribute("random",r);
+			 List<MovieComparable> listapeliculas = l.TopMovies(CurrentUser.moviespq);
 			 model.addAttribute("topmovi",listapeliculas);
-			 this.emaindef= correo;
+			 List<SerieComparable> listaseries = l.TopSeries(CurrentUser.seriespq);
+			 model.addAttribute("topseries",listaseries);
+			 
 		 }
 		 else {
 			 model.addAttribute("mensage",xr);

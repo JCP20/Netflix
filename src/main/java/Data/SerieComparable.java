@@ -76,9 +76,7 @@ public boolean equals(Object otherSerie) {
 
 @Override
 public String toString() {
-	return "Serie: " + this.tittle + "\n"
-			+ "Descripcion: "+ this.getDescription()+"\n\n" + "Rating: "+
-			this.getAverage_rating() +"\n";
+	return  this.runtime+";;"+this.tittle +";;"+this.getDirector()+";;"+this.getRelease_year()+";;"+this.getGenders() +";;"+this.getDescription()+";;"+this.average_rating+"\n";
 }
 
 

@@ -16,31 +16,47 @@ public class Login {
 	
 	static public int length;
 	
-	  public String TopMovies(String email) {
-			QueueArrayGeneric<MovieComparable> topMovies = new QueueArrayGeneric<MovieComparable>();
-			XML arch = new XML();
-			arch.create();
-			HashMap<String, User> Users = arch.read();
-			User Userdef = Users.get(email);
-			//Scanner scc= new Scanner(Userdef.getMoviespq());
-			//while(scc.hasNextLine()) {
-				//Scanner scc2= new Scanner(scc.nextLine());
-				//scc2.useDelimiter(";");
-				//int runtime = Integer.parseInt(scc.next());
-				//String title = scc.next();
-				//String director = scc.next();
-				//String year = scc.next();
-				//String genres = scc.next();
-				//String description = scc.next();
-				//Double rating = Double.parseDouble(scc.next());
-				
-				//MovieComparable movie = new MovieComparable(title,director,year,genres,description,rating,runtime);
-				//topMovies.enqueue(movie);	
-				
-			//}
+	  public List<MovieComparable> TopMovies(String Moviespq) {
+			List<MovieComparable> topMovies = new ArrayList<MovieComparable>();
+			Scanner scc= new Scanner(Moviespq);
+			while(scc.hasNextLine()) {
+				Scanner scc2= new Scanner(scc.nextLine());
+				scc2.useDelimiter(";;");
+				int runtime = Integer.parseInt(scc2.next());
+				String title = scc2.next();
+				String director = scc2.next();
+				String year = scc2.next();
+				String genres = scc2.next();
+				String description = scc2.next();
+				Double rating = Double.parseDouble(scc2.next());
+				scc2.close();
+				MovieComparable movie = new MovieComparable(title,director,year,genres,description,rating,runtime);
+				topMovies.add(movie);		
+			}
+			scc.close();
 			
+			return topMovies;
+		}
+	  public List<SerieComparable> TopSeries(String Seriespq) {
+			List<SerieComparable> topseries = new ArrayList<SerieComparable>();
+			Scanner scc= new Scanner(Seriespq);
+			while(scc.hasNextLine()) {
+				Scanner scc2= new Scanner(scc.nextLine());
+				scc2.useDelimiter(";;");
+				String runtime = scc2.next();
+				String title = scc2.next();
+				String director = scc2.next();
+				String year = scc2.next();
+				String genres = scc2.next();
+				String description = scc2.next();
+				Double rating = Double.parseDouble(scc2.next());
+				scc2.close();
+				SerieComparable series = new SerieComparable(title,director,year,genres,description,rating,runtime);
+				topseries.add(series);		
+			}
+			scc.close();
 			
-			return Userdef.getMoviespq();
+			return topseries;
 		}
 
   public static String InicioSesion(String email, String password) {
