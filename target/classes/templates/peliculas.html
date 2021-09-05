@@ -1,10 +1,113 @@
 <!DOCTYPE HTML>
-<html>
-<head> 
-    <title>TellMeWhatToWatch</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/peliculas.css" th:href="@{/css/peliculas.css}">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+	<title>Inicio</title>
 </head>
 <body>
-    <p>Bravo</p>
+	<header>
+		<div class="contenedor">
+			<h2 class="logotipo">TellmeWhatowachs</h2>
+			<nav>
+				<a class="activo" href="#" >Inicio</a>
+				<a class="nav-link"th:href="@{/registro}" >Preferencias</a>
+				<a href="#">Favoritos</a>
+				<a href="#">Salir</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<div class="pelicula-principal">
+			<div class="contenedor">
+				<h3 class="titulo"th:text="'hola '+ ${name} +'!'">
+				</h3>
+
+				<p class="descripcion">
+					
+				</p>
+				<button role="button" class="boton"><i class="fas fa-play"></i>Reproducir</button>
+				<button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+			</div>
+		</div>
+		
+				<div class="peliculas-recomendadas contenedor">
+			<div class="contenedor-titulo-controles">
+				<h3>Películas Recomendadas</h3>
+			</div>
+
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+				<div class="contenedor-carousel" >
+					<div class="carousel">
+                        <div class="pelicula">
+							<a href="#"><img src="images/1.png" alt=""></a>
+							<p class="descripcion" >fdxckhxdhcfjkhcfjvkhcfjvyk </p>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/4.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/5.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/6.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/1.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/2.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/3.png" alt=""></a>
+						</div>
+						<div class="pelicula">
+							<a href="#"><img src="images/4.png" alt=""></a>
+						</div>
+						
+					</div>
+				</div>
+   
+				<button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+		
+	</main>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script  type="text/javascript" src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"  ></script>
+	<script  type="text/javascript" src="../static/js/popper.min.js" th:src="@{/js/popper.min.js}"  ></script>
+    <script  type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"  ></script>
+    <script  type="text/javascript" src="../static/js/peliculas.js" th:src="@{/js/peliculas.js}"  ></script>
 </body>
 </html>

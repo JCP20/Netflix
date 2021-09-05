@@ -43,10 +43,7 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 
 	@Override
 	public String toString() {
-		return  "Pelicula: "+this.tittle+"\n"+
-				"\nDescripcion: "+this.getDescription() +"\n" + "Puntuacion: "+
-				this.getAverage_rating() +"\n"
-				;
+		return  this.runtime+";;"+this.tittle +";;"+this.getDirector()+";;"+this.getRelease_year()+";;"+this.getGenders() +";;"+this.getDescription()+";;"+this.average_rating+"\n";
 	}
 
 

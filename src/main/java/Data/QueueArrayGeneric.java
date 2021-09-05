@@ -44,7 +44,7 @@ public boolean empty() {
 return count <= 0;
 }
 public boolean full() {
-return count >= 10;
+return count >= 1000;
 }
 public int getCount() {
 return count;

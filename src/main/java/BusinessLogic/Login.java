@@ -16,31 +16,33 @@ public class Login {
 	
 	static public int length;
 	
-	  public static StackArrayGeneric<MovieComparable> topMovies(String stack) {
-			Scanner sc = new Scanner(stack);
-			StackArrayGeneric<MovieComparable> topMovies = new StackArrayGeneric<MovieComparable>();
-
-			while(sc.hasNext()) {
-				String s = sc.nextLine();
-				Scanner scc = new Scanner(s);
-				scc.useDelimiter(",");
-				int runtime = Integer.parseInt(scc.next());
-				String title = scc.next();
-				String director = scc.next();
-				String year = scc.next();
-				String genres = scc.next();
-				String description = scc.next();
-				Double rating = Double.parseDouble(scc.next());
+	  public String TopMovies(String email) {
+			QueueArrayGeneric<MovieComparable> topMovies = new QueueArrayGeneric<MovieComparable>();
+			XML arch = new XML();
+			arch.create();
+			HashMap<String, User> Users = arch.read();
+			User Userdef = Users.get(email);
+			//Scanner scc= new Scanner(Userdef.getMoviespq());
+			//while(scc.hasNextLine()) {
+				//Scanner scc2= new Scanner(scc.nextLine());
+				//scc2.useDelimiter(";");
+				//int runtime = Integer.parseInt(scc.next());
+				//String title = scc.next();
+				//String director = scc.next();
+				//String year = scc.next();
+				//String genres = scc.next();
+				//String description = scc.next();
+				//Double rating = Double.parseDouble(scc.next());
 				
-				MovieComparable movie = new MovieComparable(title,director,year,genres,description,rating,runtime);
-				topMovies.push(movie);	
+				//MovieComparable movie = new MovieComparable(title,director,year,genres,description,rating,runtime);
+				//topMovies.enqueue(movie);	
 				
-				
-			}
+			//}
 			
-			return topMovies;
-
+			
+			return Userdef.getMoviespq();
 		}
+
   public static String InicioSesion(String email, String password) {
 	  String UsuarioAutenticado = "UsuarioAutenticado";
 	  String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";

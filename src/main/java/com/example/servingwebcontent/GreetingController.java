@@ -1,10 +1,12 @@
 package com.example.servingwebcontent;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,8 @@ import Data.*;
 
 @Controller
 public class GreetingController {
+	 
+	 String emaindef ;
 
 	 @RequestMapping("/index")
 	  public String index(Model modelo) {    
@@ -48,10 +52,16 @@ public class GreetingController {
 		 ModelAndView modelo = new ModelAndView();
 		 String usuario = req.getParameter("email");
 		 String password = req.getParameter("password");
+		 String loginn = "Your Diego";
+		 model.addAttribute("pruv", loginn);
 		 Login l = new Login();
-		 String x = l.InicioSesion(usuario,password);
+		 String x = Login.InicioSesion(usuario,password);
 		 if (x == "UsuarioAutenticado") {
 			 modelo.setViewName("peliculas");
+			 model.addAttribute("name", "juli");
+			 String listapeliculas = l.TopMovies(usuario);
+			 model.addAttribute("topmovi",listapeliculas);
+			 //this.emaindef= usuario;
 		 }
 		 else {
 			 model.addAttribute("mensaje",x);
@@ -75,15 +85,34 @@ public class GreetingController {
 			 }
 		     }
 		 Login l = new Login();
-		 String xr = l.Registrar(username,correo,password,generos);
+		 String xr = Login.Registrar(username,correo,password,generos);
 		 if (xr == "UsuarioAutenticado") {
 			 modelo.setViewName("peliculas");
+			 model.addAttribute("name", username);
+			 String listapeliculas = l.TopMovies(correo);
+			 model.addAttribute("topmovi",listapeliculas);
+			 this.emaindef= correo;
 		 }
 		 else {
 			 model.addAttribute("mensage",xr);
 			 modelo.setViewName("register");
 		 }
 	     return modelo;
-	  }	 
+	  }
+	  //@RequestMapping("Getpelis")
+	  //public String listar(Model model ) {  
+		  //Login l = new Login();
+		  //QueueArrayGeneric<MovieComparable> listapeliculas = l.topMovies(this.emaindef);
+		  //model.addAttribute(listapeliculas);
+	    //  return "peliculas";
+	  //}
+	  //@RequestMapping("Dartitulo")
+	  //public String dtitulo(Model model ) {
+		//  String loginn = "Your Diego";
+		  //model.addAttribute("name",loginn);
+	      //return "peliculas";
+	  //}
+
+	 
 
 }
