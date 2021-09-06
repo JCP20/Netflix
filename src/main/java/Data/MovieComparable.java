@@ -6,6 +6,7 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 	private int runtime;
 	private double average_rating;
 	private String tittle;
+	private int idimagen;
 
 	public MovieComparable(String title, String director, String release_year, String genders, String description,
 			double average_rating,int runtime) {
@@ -15,11 +16,22 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		this.tittle = title;
 		this.average_rating = average_rating;
 		this.runtime = runtime;
+		this.idimagen =(int) Math.floor(Math.random() * 9);
 		
 		
 	}
 
 	
+	public int getIdimagen() {
+		return idimagen;
+	}
+
+
+	public void setIdimagen(int idimagen) {
+		this.idimagen = idimagen;
+	}
+
+
 	public int getRuntime() {
 		return runtime;
 	}
@@ -46,6 +58,16 @@ public class MovieComparable extends Audiovisual implements Comparable<MovieComp
 		return  this.runtime+";;"+this.tittle +";;"+this.getDirector()+";;"+this.getRelease_year()+";;"+this.getGenders() +";;"+this.getDescription()+";;"+this.average_rating+"\n";
 	}
 
+
+
+	public String getTittle() {
+		return tittle;
+	}
+
+
+	public void setTittle(String tittle) {
+		this.tittle = tittle;
+	}
 
 
 	@Override

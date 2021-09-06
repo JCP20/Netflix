@@ -97,7 +97,6 @@ public class GreetingController {
 		     }
 		 Login l = new Login();
 		 String xr = Login.Registrar(username,correo,password,generos);
-		 int r =(int) Math.floor(Math.random() * 9);
 		 if (xr == "UsuarioAutenticado") {
 			 XML arch = new XML();
 			 arch.create();
@@ -105,7 +104,6 @@ public class GreetingController {
 			 User CurrentUser = Users.get(correo);
 			 modelo.setViewName("peliculas");
 			 model.addAttribute("name", CurrentUser.name);
-			 model.addAttribute("random",r);
 			 List<MovieComparable> listapeliculas = l.TopMovies(CurrentUser.moviespq);
 			 model.addAttribute("topmovi",listapeliculas);
 			 List<SerieComparable> listaseries = l.TopSeries(CurrentUser.seriespq);

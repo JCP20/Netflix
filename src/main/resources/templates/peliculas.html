@@ -5,16 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/peliculas.css" th:href="@{/css/peliculas.css}">
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-	<title>MoviesAndSeries</title>
+	<title>Inicio</title>
 </head>
 <body>
 	<header>
 		<div class="contenedor">
 			<h2 class="logotipo">TellmeWhatowachs</h2>
 			<nav>
-				<a class="activo" href="#" >Inicio</a>
-				<a class="nav-link"th:href="@{/registro}" >Preferencias</a>
-				<a href="#">Salir</a>
+				<a class="activo" href="#" >home</a>
+				<a class="nav-link"th:href="@{/index}" >Exit</a>
 			</nav>
 		</div>
 	</header>
@@ -22,20 +21,16 @@
 	<main>
 		<div class="pelicula-principal">
 			<div class="contenedor">
-				<h3 class="titulo"th:text="'Hello '+ ${name} +'!'">
+				<h3 class="titulo"th:text="'hello '+ ${name} +'!'">
 				</h3>
 
-				<p class="descripcion">
-					
-				</p>
-				<button role="button" class="boton"><i class="fas fa-play"></i>Reproducir</button>
-				<button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+				<p class="descripcion">Welcome to "TellmeWhatowachs".</p>
 			</div>
 		</div>
 		
 				<div class="peliculas-recomendadas contenedor">
 			<div class="contenedor-titulo-controles">
-				<h3>Películas Recomendadas</h3>
+				<h3>These are your recommended movies:</h3>
 			</div>
 
 			<div class="contenedor-principal">
@@ -43,15 +38,95 @@
 				<div class="contenedor-carousel" >
 					<div class="carousel" >
                         <div class="pelicula" th:each="peli:${topmovi}">
-                            <div class="img" th:switch="${topmovi}">
-							<a href="#"><img src="images/1.png" alt=""></a>
-							<p class="descripcion" th:text="${peli.getDescription()}" ></p>
-                            <p class="descripcion" th:text="${peli.getDescription()}" ></p>
+							 <div class="imag" th:switch="${peli.idimagen}">
+                                <a th:case="0" href="#">
+                                    <img src="images/10.jpg" alt="">
+                                </a>
+                                <a th:case="1" href="#">
+                                    <img src="images/1.jpg" alt="">
+                                </a>
+                                <a th:case="2" href="#">
+                                    <img src="images/2.jpg" alt="">
+                                </a>
+                                <a th:case="3" href="#">
+                                    <img src="images/3.jpg" alt="">
+                                </a>
+                                <a th:case="4" href="#">
+                                    <img src="images/4.jpg" alt="">
+                                </a>
+                                <a th:case="5" href="#">
+                                    <img src="images/5.jpg" alt="">
+                                </a>
+                                <a th:case="6" href="#">
+                                    <img src="images/6.jpg" alt="">
+                                </a>
+                                <a th:case="7" href="#">
+                                    <img src="images/7.jpg" alt="">
+                                </a>
+                                <a th:case="8" href="#">
+                                    <img src="images/8.jpg" alt="">
+                                </a>
+                                <a th:case="9" href="#">
+                                    <img src="images/9.jpg" alt="">
+                                </a>
+                                <a th:case="10" href="#">
+                                    <img src="images/10.jpg" alt="">
+                                </a>
+                            </div>
+                            <p class="ttitulo" th:text="${peli.tittle}" ></p>
+							<p class="descripcion" th:text="'Description: '+${peli.getDescription()}" ></p>
+							<p class="puntos" th:text="${peli.average_rating}+'/10'" ></p>
 						</div>
 					</div>
 				</div>
    
 				<button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+			</div>
+			<div class="contenedor-titulo-controles">
+				<h3>These are your recommended series:</h3>
+			</div>
+			<div class="contenedor-principal">
+				<button role="button" id="flecha-izquierda2" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+				<div class="contenedor-carousel2" >
+					<div class="carousel" >
+                        <div class="pelicula" th:each="seri:${topseries}">
+							 <div class="imag" th:switch="${seri.idimagen}">
+                                <a th:case="0" href="#">
+                                    <img src="images/10.jpg" alt="">
+                                </a>
+                                <a th:case="1" href="#">
+                                    <img src="images/11.jpg" alt="">
+                                </a>
+                                <a th:case="2" href="#">
+                                    <img src="images/12.jpg" alt="">
+                                </a>
+                                <a th:case="3" href="#">
+                                    <img src="images/13.jpg" alt="">
+                                </a>
+                                <a th:case="4" href="#">
+                                    <img src="images/14.jpg" alt="">
+                                </a>
+                                <a th:case="5" href="#">
+                                    <img src="images/15.jpg" alt="">
+                                </a>
+                                <a th:case="6" href="#">
+                                    <img src="images/16.jpg" alt="">
+                                </a>
+                                <a th:case="7" href="#">
+                                    <img src="images/17.jpg" alt="">
+                                </a>
+                                <a th:case="8" href="#">
+                                    <img src="images/18.jpg" alt="">
+                                </a>
+                            </div>
+                            <p class="ttitulo" th:text="${seri.tittle}" ></p>
+							<p class="descripcion" th:text="'Description: ' + ${seri.getDescription()}" ></p>
+							<p class="puntos" th:text="${seri.average_rating}+'/10'" ></p>
+						</div>
+					</div>
+				</div>
+   
+				<button role="button" id="flecha-derecha2" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
 			</div>
 		</div>
 		

@@ -5,6 +5,7 @@ public class SerieComparable extends Audiovisual implements Comparable<SerieComp
 	private String runtime;
 	private String tittle;
 	private double average_rating;
+	private int idimagen;
 
 	public SerieComparable(String title, String director, String release_year, String genders, String description,
 			double average_rating, String runtime) {
@@ -13,6 +14,15 @@ public class SerieComparable extends Audiovisual implements Comparable<SerieComp
 		this.runtime = runtime;
 		this.average_rating = average_rating;
 		this.tittle = title;
+		this.idimagen =(int) Math.floor(Math.random() * 9);
+	}
+
+	public int getIdimagen() {
+		return idimagen;
+	}
+
+	public void setIdimagen(int idimagen) {
+		this.idimagen = idimagen;
 	}
 
 	public String getRuntime() {
