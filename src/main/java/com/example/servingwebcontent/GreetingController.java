@@ -61,9 +61,10 @@ public class GreetingController {
 		 Login l = new Login();
 		 String x = Login.InicioSesion(usuario,password);
 		 if (x == "UsuarioAutenticado") {
+			 HashMapGeneric<User> Users;
 			 XML arch = new XML();
 			 arch.create();
-			 HashMap<String, User> Users = arch.read();
+			 Users = arch.read();
 			 User CurrentUser = Users.get(usuario);
 			 modelo.setViewName("peliculas");
 			 model.addAttribute("name", CurrentUser.name);
@@ -98,9 +99,10 @@ public class GreetingController {
 		 Login l = new Login();
 		 String xr = Login.Registrar(username,correo,password,generos);
 		 if (xr == "UsuarioAutenticado") {
+			 HashMapGeneric<User> Users;
 			 XML arch = new XML();
 			 arch.create();
-			 HashMap<String, User> Users = arch.read();
+			 Users = arch.read();
 			 User CurrentUser = Users.get(correo);
 			 modelo.setViewName("peliculas");
 			 model.addAttribute("name", CurrentUser.name);
@@ -116,19 +118,7 @@ public class GreetingController {
 		 }
 	     return modelo;
 	  }
-	  //@RequestMapping("Getpelis")
-	  //public String listar(Model model ) {  
-		  //Login l = new Login();
-		  //QueueArrayGeneric<MovieComparable> listapeliculas = l.topMovies(this.emaindef);
-		  //model.addAttribute(listapeliculas);
-	    //  return "peliculas";
-	  //}
-	  //@RequestMapping("Dartitulo")
-	  //public String dtitulo(Model model ) {
-		//  String loginn = "Your Diego";
-		  //model.addAttribute("name",loginn);
-	      //return "peliculas";
-	  //}
+
 
 	 
 

@@ -63,14 +63,15 @@ public class Login {
 	  String UsuarioAutenticado = "UsuarioAutenticado";
 	  String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 	  Pattern p = Pattern.compile(emailRegex);
+	  HashMapGeneric<User> Users;
 	  XML arch = new XML();
 	  arch.create();
-	  HashMap<String, User> Users = arch.read();
+	  Users = arch.read();
 	  Matcher m = p.matcher(email);
 	    if(!m.find()){
 	      return("Ingrese un correo valido");
 	    }else{
-	    	if(Users.containsKey(email)){
+	    	if(Users.find(email)){
 	          User CurrentUser = Users.get(email);
 	          if (!CurrentUser.CorrectUser(password)){
 	        	  return("Contraseña incorrecta, intentalo de nuevo");
@@ -86,16 +87,17 @@ public class Login {
     String UsuarioAutenticado = "UsuarioAutenticado";
     String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
     Pattern p = Pattern.compile(emailRegex);
+    HashMapGeneric<User> Users;
     XML arch = new XML();
     arch.create();
-    HashMap<String, User> Users = arch.read();
+    Users = arch.read();
 	Matcher m = p.matcher(email);
 	 if(!m.find()){
 	      return("Ingrese un correo valido");
 	      }
 	 else {
 		 User usuario = new User(email);
-         if(Users.containsKey(email)){
+         if(Users.find(email)){
            return("Este correo ya tiene un usuario");
 	     }
          else if(password.length()<8){

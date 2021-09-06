@@ -2,7 +2,7 @@ package BusinessLogic;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,14 +15,16 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Text;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
+import Data.HashMapGeneric;
 import Data.User;
 
 public class XML{
@@ -56,8 +58,8 @@ public class XML{
  
     }
 
-    public HashMap<String, User> read() {
-        HashMap<String, User> mapUsers = new HashMap<String, User>();
+    public HashMapGeneric<User> read() {
+      HashMapGeneric<User> mapUsers = new HashMapGeneric<User>();
         try {
         	
             // Creo una instancia de DocumentBuilderFactory
@@ -140,7 +142,7 @@ public class XML{
 
         //Creamos un nuevo elemento en la casa
         Element user = documento.createElement("user");
-        //Le aÃ±adimos una caracterÃ­stica
+        //Le aÃƒÂ±adimos una caracterÃƒÂ­stica
         Element ema = documento.createElement("email");
         Text textEma = documento.createTextNode(u.getEmail());
         ema.appendChild(textEma);
@@ -167,7 +169,7 @@ public class XML{
         topSeries.appendChild(textTopSeries);
         user.appendChild(topSeries);
         
-        //AÃ±adimos la informaciÃ³n a la casa ya existente
+        //AÃƒÂ±adimos la informaciÃƒÂ³n a la casa ya existente
         NodeList nodoRaiz = documento.getDocumentElement().getElementsByTagName("all_users");
         nodoRaiz.item(0).appendChild(user);
 
