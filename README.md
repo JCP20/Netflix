@@ -71,7 +71,10 @@ Para construir la aplicación de recomendación de peliculas y series, se utliz�
  - Oscar Rodriguez - Estudiante Ciencias de la computación UNAL.  
 
   
-  
+# Referencias .
+1. [Bootstrap.](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+2. [Interfaz grafica sencilla que sirvio como base.](https://github.com/falconmasters/p-gina-estilo-netflix/tree/carousel)
+
   
 
 
